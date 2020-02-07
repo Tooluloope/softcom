@@ -25,14 +25,23 @@ const Form = () => {
     const newState = Object.assign({}, data)
     newState[name] = value
     if(name === 'date') {
+        if(value.length > 5 || (value.length > 0 && isNaN(parseInt(value.charAt(value.length -1))))) {
+            return
+         }
         const newValue = value.replace(/\//g, '')
-        console.log( newValue)
+        
         updateValidators(name, newValue, validators)
-        let new_value =  newValue.replace(/^(\d{2})(\d{2})/, '$1/$2')
+        let new_value =  newValue.replace(/^(\d{2})(\d{2})/g, '$1/$2')
         newState[name] = new_value
         setdata(newState)
+        if(value.length > 5 || isNaN(parseInt(value.charAt(value.length -1)))) {
+           return
+        }
     }
     else if (name === 'card_number'){
+        if(value.length > 19 || (value.length > 0 && value.charAt(value.length -1) !==' ' && isNaN(parseInt(value.charAt(value.length -1))))) {
+            return
+         }
         const newValue = value.replace(/ /g, '')
         console.log( newValue)
         updateValidators(name, newValue, validators)
