@@ -51,7 +51,7 @@
     text-align: left;
   }
   
-  .height input[type=text] {
+  .height input {
     background-color: #1A2226;
     border: none;
     border-bottom: 2px solid #0DB8DE;
@@ -64,18 +64,7 @@
     color: #ECF0F5;
   }
   
-  .height input[type=password] {
-    background-color: #1A2226;
-    border: none;
-    border-bottom: 2px solid #0DB8DE;
-    border-top: 0px;
-    border-radius: 0px;
-    font-weight: bold;
-    outline: 0;
-    padding-left: 0px;
-    margin-bottom: 20px;
-    color: #ECF0F5;
-  }
+  
   
   .height .form-group {
     margin-bottom: 40px;
