@@ -3,13 +3,13 @@ const Validator = {
       rules: [
         {
           test: /^[a-zA-Z]([-']?[a-zA-Z]+){1,}( [a-zA-Z]([-']?[a-zA-Z]+){1,})$/,
-          message: 'Valid firstname must not be less that two characters, must include a space and then a valid second name',
+          message: 'Valid firstname must not be less that two characters, must include a space and then a valid second name. ',
         },
         {
           test: (value) => {
             return value.length >= 2;
           },
-          message: 'Username must be longer than two characters',
+          message: 'Username must be longer than two characters. ',
         },
       ],
       errors: [],
@@ -20,7 +20,7 @@ const Validator = {
         rules: [
           {
             test: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-            message: 'Enter a Valid Email Address',
+            message: 'Enter a Valid Email Address. ',
           },
           
         ],
@@ -35,11 +35,11 @@ const Validator = {
           test: (value) => {
             return value.length >= 6;
           },
-          message: 'Password must not be shorter than 6 characters',
+          message: 'Password must not be shorter than 6 characters. ',
         },
         {
             test: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W])[A-Za-z\d\W]{6,}$/,
-            message: 'Password must contain  alphabets-numeric characters with atleast one Uppercase Character',
+            message: 'Password must contain  alphabets-numeric characters with atleast one Uppercase Character. ',
           },
       ],
       errors: [],
@@ -52,7 +52,7 @@ const Validator = {
             test: (value ) => {
               return value === Validator.password.state;
             },
-            message: 'Passwords must be the same',
+            message: 'Passwords must be the same. ',
           },
         ],
         errors: [],
@@ -63,7 +63,7 @@ const Validator = {
         rules: [
             {
                 test: /^([0]{1})([7-9]{1})([0|1]{1})([\d]{1})([\d]{7,8})$/,
-                message: 'Enter a Nigerian Phone Number without +234',
+                message: 'Enter a Nigerian Phone Number without +234. ',
               },
         ],
         errors: [],
@@ -76,11 +76,11 @@ const Validator = {
             test: (value) => {
               return value.length === 4;
             },
-            message: 'Password must be four characters',
+            message: 'Pin must be four characters. ',
           },
           {
             test: /^([\d]{4})$/,
-            message: 'Pin must be  digits only',
+            message: 'Pin must be  digits only. ',
             },
         ],
         errors: [],
@@ -93,11 +93,11 @@ const Validator = {
             test: (value) => {
               return value.length === 16;
             },
-            message: 'Card number must be sixteen characters',
+            message: 'Card number must be sixteen characters. ',
           },
           {
             test: /^([\d]{16})$/,
-            message: 'Input must be  digits only',
+            message: 'Input must be  digits only. ',
             },
         ],
         errors: [],
@@ -110,11 +110,11 @@ const Validator = {
             test: (value) => {
               return value.length === 4;
             },
-            message: 'Invalid date. (MM/YY)',
+            message: 'Invalid date. (MM/YY). ',
           },
           {
             test: /^([\d]{4})$/,
-            message: 'Date must be  digits only',
+            message: 'Date must be  digits only. ',
             },
         ],
         errors: [],

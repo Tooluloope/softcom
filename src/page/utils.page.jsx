@@ -33,16 +33,19 @@ export const resetValidators = (validators) => {
 export const displayValidationErrors = (name, validators) =>  {
     const validator = validators[name];
     const result = '';
-    if (validator && !validator.valid) {
-      const errors = validator.errors.map((info, index) => {
-        return <span className="error" key={index}>* {info}</span>;
-      });
-
-      return (
-        <div className="col s12 row">
-          {errors}
-        </div>
-      );
+    if (validator && !validator.valid ) {
+    
+        const errors = validator.errors
+        if(errors.length > 0) {
+            
+            errors.map((info, index) => {
+            return <p className="" key={index}>* {info}</p>;
+        });
+            return (
+                errors
+            );
+        }
+    
     }
     return result;
 
