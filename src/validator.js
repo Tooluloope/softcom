@@ -1,5 +1,5 @@
 const Validator = {
-    username: {
+    fullname: {
       rules: [
         {
           test: /^[a-zA-Z]([-']?[a-zA-Z]+){1,}( [a-zA-Z]([-']?[a-zA-Z]+){1,})$/,
@@ -39,7 +39,7 @@ const Validator = {
         },
         {
             test: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W])[A-Za-z\d\W]{6,}$/,
-            message: 'Password must contain  alphabets-numeric characters with atleast one Uppercase Character. ',
+            message: 'Password must contain  alphabets-numeric characters with atleast one Uppercase and special Character. ',
           },
       ],
       errors: [],
@@ -62,9 +62,16 @@ const Validator = {
       phone_number: {
         rules: [
             {
-                test: /^([0]{1})([7-9]{1})([0|1]{1})([\d]{1})([\d]{7,8})$/,
+                test: /^([0]{1})([7-9]{1})([0|1]{1})([\d]{1})([\d]{7})$/,
                 message: 'Enter a Nigerian Phone Number without +234. ',
+            },
+            {
+                test: (value) => {
+                  return value.length === 11;
+                },
+                message: 'Password must 11 digits. ',
               },
+
         ],
         errors: [],
         valid: false,

@@ -1,15 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './form.style.css';
+import { createBrowserHistory } from 'history'
+
 import Validator from '../../validator';
 import { Input } from '../../component/input.component';
 import { updateValidators, displayValidationErrors, isFormValid } from '../utils.page';
+import Button from '../../component/ button.component';
+
 
 const Form = () => {
+    const browserHistory = createBrowserHistory();
 
   const validators = Validator
 
   const initialState = {
-    username: '',
+    fullname: '',
     email: '',
     phone_number: '',
     password: '',
@@ -40,7 +45,6 @@ const Form = () => {
             return
          }
         const newValue = value.replace(/ /g, '')
-        console.log( newValue)
         updateValidators(name, newValue, validators)
         let new_value =  newValue.replace(/(\d{4})/g, '$1 ').replace(/(^\s+|\s+$)/,'')
         newState[name] = new_value
@@ -52,8 +56,12 @@ const Form = () => {
     setdata(newState)
   }
 
-  
-  useEffect(() => console.log(data, validators), [data, validators]);
+  const onSubmit = (e) => {
+    e.preventDefault()
+    browserHistory.push('/dashboard')
+    
+    
+  }
   return (
     <div className="App">
       <div className='body'>
@@ -72,7 +80,7 @@ const Form = () => {
                             <div className="col-lg-12 login-form">
                             
                                 <form >
-                                    <Input displayValidationErrors ={displayValidationErrors('username', validators)} name = 'username' type='text' label = 'Username'  onChange = {e => handleInputChange(e.target.name, e.target.value)} />
+                                    <Input displayValidationErrors ={displayValidationErrors('fullname', validators)} name = 'fullname' type='text' label = 'Full Name'  onChange = {e => handleInputChange(e.target.name, e.target.value)} />
                                     <Input displayValidationErrors ={displayValidationErrors('password', validators)} name = 'password' type='password' label = 'Password'  onChange = {e => handleInputChange(e.target.name, e.target.value) } />
                                     <Input displayValidationErrors = { displayValidationErrors('password2', validators) } name = 'password2' type='password' label = 'Confirm Password'  onChange = {e => handleInputChange(e.target.name, e.target.value) } />
                                     <Input displayValidationErrors = { displayValidationErrors('email', validators) } name = 'email' type='email' label = 'Email Address'  onChange = {e => handleInputChange(e.target.name, e.target.value) } />
@@ -84,7 +92,8 @@ const Form = () => {
                                     <div className="col-lg-12 loginbttm">
                                         
                                         <div className=" login-btm login-button">
-                                            <button type="submit"  className="btn btn-outline-primary"  disabled = {!isFormValid(validators)}>LOGIN</button>
+                                            <Button handleClick = {onSubmit} type="submit"  className="btn btn-outline-primary" label='LOGIN' disabled = {!isFormValid(validators)} />
+                                        
                                         </div>
                                     </div>
                                 </form>
