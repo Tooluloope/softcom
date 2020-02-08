@@ -92,7 +92,7 @@ const Form = () => {
                                     <div className="col-lg-12 loginbttm">
                                         
                                         <div className=" login-btm login-button">
-                                            <Button handleClick = {onSubmit} type="submit"  className="btn btn-outline-primary" label='LOGIN' disabled = {!isFormValid(validators)} />
+                                            <Button handleClick = {onSubmit} type="submit"  className="btn btn-primary" label='LOGIN' disabled = {!isFormValid(validators)} />
                                         
                                         </div>
                                     </div>
