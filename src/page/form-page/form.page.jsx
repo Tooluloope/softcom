@@ -73,7 +73,7 @@ const Form = () => {
                             <i className="fa fa-key" aria-hidden="true"></i>
                         </div>
                         <div className="col-lg-12 login-title">
-                            ADMIN PANEL
+                            PANEL
                         </div>
 
                         <div className="col-lg-12 login-form">
@@ -92,7 +92,7 @@ const Form = () => {
                                     <div className="col-lg-12 loginbttm">
                                         
                                         <div className=" login-btm login-button">
-                                            <Button handleClick = {onSubmit} type="submit"  className="btn btn-primary" label='LOGIN' disabled = {!isFormValid(validators)} />
+                                            <Button handleClick = {onSubmit} type="submit"  className="btn btn-primary" label='SUBMIT' disabled = {!isFormValid(validators)} />
                                         
                                         </div>
                                     </div>
