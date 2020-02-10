@@ -1,6 +1,6 @@
 import React from 'react'
 
-
+// Update Validator for required field
 export const updateValidators =(name, value, validators) => {
     validators[name].errors = [];
     validators[name].state = value;
@@ -20,7 +20,7 @@ export const updateValidators =(name, value, validators) => {
     });
 }
 
-
+// Resets validator when view changes
 export const resetValidators = (validators) => {
     Object.keys(validators).forEach((name) => {
       validators[name].errors = [];
@@ -29,7 +29,7 @@ export const resetValidators = (validators) => {
     });
 }
 
-
+// Displays Validators in form
 export const displayValidationErrors = (name, validators) =>  {
     const validator = validators[name];
     const result = '';
@@ -51,6 +51,7 @@ export const displayValidationErrors = (name, validators) =>  {
 
 }
 
+//  Check if form is valid to enable or disable button
 export const isFormValid = (validators) => {
     let status = true;
     Object.keys(validators).forEach((field) => {
