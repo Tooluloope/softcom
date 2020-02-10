@@ -76,6 +76,8 @@ const Form = (props) => {
     useEffect(() => {
         resetValidators(validators)
     }, [validators])
+
+    const {card_number, date} = data
     return (
         <div className="App">
             <div className='body'>
@@ -99,8 +101,8 @@ const Form = (props) => {
                                         <Input displayValidationErrors = { displayValidationErrors('password2', validators) } name = 'password2' type='password' label = 'Confirm Password'  onChange = {e => handleInputChange(e.target.name, e.target.value) } />
                                         <Input displayValidationErrors = { displayValidationErrors('email', validators) } name = 'email' type='email' label = 'Email Address'  onChange = {e => handleInputChange(e.target.name, e.target.value) } />
                                         <Input displayValidationErrors = { displayValidationErrors('phone_number', validators) } name = 'phone_number' type='number' label = 'Phone Number'  onChange = {e => handleInputChange(e.target.name, e.target.value) } />
-                                        <Input displayValidationErrors = { displayValidationErrors('card_number', validators) } value={data.card_number} name = 'card_number'  type='text' label = 'Card Number' onChange = {e => handleInputChange(e.target.name, e.target.value) }   />
-                                        <Input displayValidationErrors = { displayValidationErrors('date', validators) } value={data.date} name = 'date'  type='text' label = 'Expiry Date' onChange = {e => handleInputChange(e.target.name, e.target.value) }   />
+                                        <Input displayValidationErrors = { displayValidationErrors('card_number', validators) } value={card_number} name = 'card_number'  type='text' label = 'Card Number' onChange = {e => handleInputChange(e.target.name, e.target.value) }   />
+                                        <Input displayValidationErrors = { displayValidationErrors('date', validators) } value={date} name = 'date'  type='text' label = 'Expiry Date' onChange = {e => handleInputChange(e.target.name, e.target.value) }   />
                                         <Input displayValidationErrors = { displayValidationErrors('pin', validators) } name = 'pin' type='password' label = 'PIN'  onChange = {e => handleInputChange(e.target.name, e.target.value) } />
                                         <div className="col-lg-12 loginbttm">
                                             <div className=" login-btm login-button">
