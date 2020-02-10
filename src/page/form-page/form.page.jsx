@@ -30,7 +30,9 @@ const Form = (props) => {
     const [data, setdata] = useState(initialState)
 
     // Handles all input change in the form field
-    const handleInputChange =(name, value) => {
+    const handleInputChange =(e) => {
+        const name = e.target.name
+        const value = e.target.value
         const newState = Object.assign({}, data)
         newState[name] = value
 
@@ -96,14 +98,14 @@ const Form = (props) => {
                                 <div className="col-lg-12 login-form">
                                 
                                     <form >
-                                        <Input displayValidationErrors ={displayValidationErrors('fullname', validators)} name = 'fullname' type='text' label = 'Full Name'  onChange = {e => handleInputChange(e.target.name, e.target.value)} />
-                                        <Input displayValidationErrors ={displayValidationErrors('password', validators)} name = 'password' type='password' label = 'Password'  onChange = {e => handleInputChange(e.target.name, e.target.value) } />
-                                        <Input displayValidationErrors = { displayValidationErrors('password2', validators) } name = 'password2' type='password' label = 'Confirm Password'  onChange = {e => handleInputChange(e.target.name, e.target.value) } />
-                                        <Input displayValidationErrors = { displayValidationErrors('email', validators) } name = 'email' type='email' label = 'Email Address'  onChange = {e => handleInputChange(e.target.name, e.target.value) } />
-                                        <Input displayValidationErrors = { displayValidationErrors('phone_number', validators) } name = 'phone_number' type='number' label = 'Phone Number'  onChange = {e => handleInputChange(e.target.name, e.target.value) } />
-                                        <Input displayValidationErrors = { displayValidationErrors('card_number', validators) } value={card_number} name = 'card_number'  type='text' label = 'Card Number' onChange = {e => handleInputChange(e.target.name, e.target.value) }   />
-                                        <Input displayValidationErrors = { displayValidationErrors('date', validators) } value={date} name = 'date'  type='text' label = 'Expiry Date' onChange = {e => handleInputChange(e.target.name, e.target.value) }   />
-                                        <Input displayValidationErrors = { displayValidationErrors('pin', validators) } name = 'pin' type='password' label = 'PIN'  onChange = {e => handleInputChange(e.target.name, e.target.value) } />
+                                        <Input displayValidationErrors ={displayValidationErrors('fullname', validators)} name = 'fullname' type='text' label = 'Full Name'  onChange = {handleInputChange} />
+                                        <Input displayValidationErrors ={displayValidationErrors('password', validators)} name = 'password' type='password' label = 'Password'  onChange = {handleInputChange } />
+                                        <Input displayValidationErrors = { displayValidationErrors('password2', validators) } name = 'password2' type='password' label = 'Confirm Password'  onChange = {handleInputChange } />
+                                        <Input displayValidationErrors = { displayValidationErrors('email', validators) } name = 'email' type='email' label = 'Email Address'  onChange = {handleInputChange } />
+                                        <Input displayValidationErrors = { displayValidationErrors('phone_number', validators) } name = 'phone_number' type='number' label = 'Phone Number'  onChange = {handleInputChange } />
+                                        <Input displayValidationErrors = { displayValidationErrors('card_number', validators) } value={card_number} name = 'card_number'  type='text' label = 'Card Number' onChange = {handleInputChange }   />
+                                        <Input displayValidationErrors = { displayValidationErrors('date', validators) } value={date} name = 'date'  type='text' label = 'Expiry Date' onChange = {handleInputChange }   />
+                                        <Input displayValidationErrors = { displayValidationErrors('pin', validators) } name = 'pin' type='password' label = 'PIN'  onChange = {handleInputChange } />
                                         <div className="col-lg-12 loginbttm">
                                             <div className=" login-btm login-button">
                                                 <Button handleClick = {onSubmit} type="submit"  className="btn btn-primary" label='SUBMIT' disabled = {!isFormValid(validators)} />
